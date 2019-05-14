@@ -55,6 +55,22 @@ class Base extends Controller
         $this->header = $header;
     }
 
+    /**
+     * 获取分类名称
+     * @param $data
+     */
+    protected function getCatName($data)
+    {
+        if(empty($data)){
+            return '';
+        }
+        $cates = Config::get('cate.lists');
+        foreach ($data as $key=>$val){
+            $data[$key]['cate_name'] = $cates[$data[$key]['cate_id']];
+        }
+        return $data;
+    }
+
     public function AesTest()
     {
         //测试数据  实际应该从客户端传过来

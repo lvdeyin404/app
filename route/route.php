@@ -16,3 +16,6 @@ Route::get('think', function () {
 Route::get('hello/:name', 'index/hello');
 
 Route::resource('test','api/test');
+Route::resource(':version/Cat','api/:version.cat');
+Route::resource(':version/Index','api/:version.index');
+Route::get(':version/init', 'api/:version.index/init');

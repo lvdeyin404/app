@@ -50,7 +50,7 @@ class IAuth
         }
 
         //测试模式暂时不验证 方便验证
-        if(!Config::get('app.app_debug')){
+        if(Config::get('app.app_debug')){
             //判断时间是否过期
             if(time() - ceil(($arr['time'])/1000) > Config::get('salt.app_sign_time')){
                 return false;
