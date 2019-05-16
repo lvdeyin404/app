@@ -19,3 +19,4 @@ Route::resource('test','api/test');
 Route::resource(':version/Cat','api/:version.cat');
 Route::resource(':version/Index','api/:version.index');
 Route::get(':version/init', 'api/:version.index/init');
+Route::post(':version/login', 'api/:version.login/save');

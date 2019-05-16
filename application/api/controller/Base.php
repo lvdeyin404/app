@@ -19,7 +19,17 @@ use think\Request;
 
 class Base extends Controller
 {
+    /**
+     * 客户端传递的header头数据
+     * @var string
+     */
     public $header = '';
+
+    /**
+     * 保存已登陆用户的信息
+     * @var string
+     */
+    public $userInfo = '';
 
     public function __construct()
     {

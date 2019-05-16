@@ -49,7 +49,7 @@ class IAuth
             return false;
         }
 
-        //测试模式暂时不验证 方便验证
+        //测试模式暂时不验证 方便测试
         if(Config::get('app.app_debug')){
             //判断时间是否过期
             if(time() - ceil(($arr['time'])/1000) > Config::get('salt.app_sign_time')){
@@ -61,5 +61,17 @@ class IAuth
             }
         }
         return true;
+    }
+
+    /**
+     * 生成唯一性token
+     * @param string $phone
+     * @return string
+     */
+    public static function getLoginToken($phone = '')
+    {
+        $data = md5(uniqid(md5(microtime(true)), true));
+        $data = sha1($data);
+        return $data;
     }
 }
